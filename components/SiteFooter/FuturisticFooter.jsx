@@ -79,7 +79,7 @@ export default function FuturisticFooter() {
     <footer 
       id="main-footer" 
       ref={containerRef}
-      className="relative w-full h-[80vh] min-h-[600px] flex flex-col items-center justify-center bg-[var(--color-bg)] overflow-hidden border-t-2 border-[var(--color-border)]"
+      className="relative w-full h-[100svh] md:h-[80vh] md:min-h-[600px] flex flex-col items-center justify-center bg-[var(--color-bg)] overflow-hidden border-t-2 border-[var(--color-border)]"
       style={{ perspective: "2000px" }}
     >
       {/* Background Cyber Grid */}
@@ -105,13 +105,13 @@ export default function FuturisticFooter() {
             color: "var(--color-text)",
             fontFamily: "var(--font-inter), sans-serif",
             fontWeight: 900,
-            fontSize: "clamp(4rem, 20vw, 20rem)",
+            fontSize: "clamp(3.5rem, 18vw, 20rem)",
             letterSpacing: "-0.05em",
             lineHeight: 1,
             zIndex: 20
           }}
           initial={{ y: 0 }}
-          animate={{ y: isInView ? "-30vh" : 0 }}
+          animate={{ y: isInView ? "-200px" : 0 }}
           transition={{ type: "spring", stiffness: 50, damping: 20, delay: 0.2 }}
         >
           {text}
@@ -125,13 +125,13 @@ export default function FuturisticFooter() {
             color: "var(--color-text)",
             fontFamily: "var(--font-inter), sans-serif",
             fontWeight: 900,
-            fontSize: "clamp(4rem, 20vw, 20rem)",
+            fontSize: "clamp(3.5rem, 18vw, 20rem)",
             letterSpacing: "-0.05em",
             lineHeight: 1,
             zIndex: 20
           }}
           initial={{ y: 0 }}
-          animate={{ y: isInView ? "30vh" : 0 }}
+          animate={{ y: isInView ? "200px" : 0 }}
           transition={{ type: "spring", stiffness: 50, damping: 20, delay: 0.2 }}
         >
           {text}
@@ -148,7 +148,7 @@ export default function FuturisticFooter() {
 
         {/* THE HIDDEN CONTENT IN THE VAULT */}
         <motion.div 
-          className="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-24 px-6"
+          className="relative z-10 flex flex-col md:flex-row items-center gap-6 md:gap-24 px-6 w-full max-w-5xl justify-center"
           initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)" }}
           animate={{ 
             opacity: isInView ? 1 : 0, 
