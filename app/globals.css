@@ -259,13 +259,15 @@ html {
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: auto;
-  height: 85vh;
+  width: 90vw;
+  max-width: 65vh; /* Prevents it from getting too wide on desktop */
+  aspect-ratio: 1199 / 1312;
+  height: auto;
   z-index: 10;
 }
 
 #hero-img img {
-  width: auto;
+  width: 100%;
   height: 100%;
   object-fit: contain;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%), linear-gradient(to top, transparent 0%, black 15%);
@@ -1142,13 +1144,15 @@ html {
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: auto;
-    height: 75vh;
+    width: 85vw;
+    max-width: 500px;
+    aspect-ratio: 1199 / 1312;
+    height: auto;
     z-index: 10;
   }
 
   #hero-img img {
-    width: auto;
+    width: 100%;
     height: 100%;
     object-fit: contain;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%), linear-gradient(to top, transparent 0%, black 15%);
@@ -1335,8 +1339,10 @@ html {
 
   #hero-img {
     top: 56%;
-    width: auto;
-    height: 60vh;
+    width: 90vw;
+    max-width: 450px;
+    aspect-ratio: 1199 / 1312;
+    height: auto;
   }
 
   #hero-stroke-1 {

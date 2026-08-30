@@ -19,10 +19,10 @@ const SmoothScroll = ({ children }) => {
       duration: isTouch ? 1.0 : 1.5,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smooth: true,
-      // On touch devices, we enable smoothTouch so the site gives the identical
-      // fluid, buttery feel as on desktop.
-      smoothTouch: true,
-      touchMultiplier: isTouch ? 1.5 : 0.25,
+      // On touch devices, we usually disable smoothTouch because native scrolling
+      // feels much better and prevents scrolling lockups on mobile Safari/Chrome.
+      smoothTouch: false,
+      touchMultiplier: isTouch ? 2 : 0.25,
     });
 
     // Expose the active Lenis instance globally so other components (e.g. the
