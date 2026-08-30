@@ -86,9 +86,13 @@ const Contact = () => {
   }, []);
 
   const splitChars = (text) =>
-    text.split("").map((char, i) => (
-      <span key={i} className="ct-char" style={{ display: "inline-block" }}>
-        {char === " " ? "\u00A0" : char}
+    text.split(" ").map((word, wIdx) => (
+      <span key={wIdx} className="inline-block whitespace-nowrap mr-2 md:mr-3">
+        {word.split("").map((char, i) => (
+          <span key={i} className="ct-char inline-block">
+            {char}
+          </span>
+        ))}
       </span>
     ));
 

@@ -33,29 +33,28 @@ export function DisplayCard({
 export default function DisplayCards({ cards }) {
   const displayCards = cards || [];
   const [activeCard, setActiveCard] = useState(displayCards.length - 1);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   return (
     <div className="grid [grid-template-areas:'stack'] place-items-center opacity-100 transition-all duration-700 w-full max-w-[100vw] overflow-x-hidden md:overflow-visible py-20 pr-4 md:pr-10">
+      <style dangerouslySetInnerHTML={{__html: `
+        .dc-card {
+          --tx: 24px;
+          --ty: 20px;
+          --pop: 20px;
+        }
+        @media (min-width: 768px) {
+          .dc-card {
+            --tx: 64px;
+            --ty: 40px;
+            --pop: 40px;
+          }
+        }
+      `}} />
       {displayCards.map((cardProps, index) => {
         const isActive = activeCard === index;
         
-        // Much tighter spacing on mobile to prevent overflow
-        const translateX = index * (isMobile ? 24 : 64);
-        const translateY = index * (isMobile ? 20 : 40);
-        
-        // Active card pops up slightly
-        const currentTranslateY = isActive ? translateY - (isMobile ? 20 : 40) : translateY;
-        
         const style = {
-          transform: `translate(${translateX}px, ${currentTranslateY}px)`,
+          transform: `translate(calc(${index} * var(--tx)), calc(${index} * var(--ty) - ${isActive ? 'var(--pop)' : '0px'}))`,
           zIndex: isActive ? 100 : index,
         };
 
@@ -66,11 +65,11 @@ export default function DisplayCards({ cards }) {
         return (
           <div 
             key={index} 
-            className={`[grid-area:stack] transition-all duration-700 ease-out cursor-pointer ${overlayClass}`}
+            className={`dc-card [grid-area:stack] transition-transform duration-700 ease-out cursor-pointer ${overlayClass}`}
             style={style}
             onClick={() => setActiveCard(index)}
           >
-            <DisplayCard {...cardProps} className="w-[18rem] md:w-[28rem] min-h-[14rem] md:min-h-[12rem] px-5 py-4 md:px-6 md:py-5" />
+            <DisplayCard {...cardProps} className="w-[18rem] md:w-[28rem] min-h-[14rem] md:min-h-[12rem] px-5 py-4 md:px-6 md:py-5 !backdrop-blur-none md:!backdrop-blur-sm after:hidden md:after:block" />
           </div>
         );
       })}
