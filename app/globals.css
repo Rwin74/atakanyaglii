@@ -60,8 +60,8 @@
 }
 
 html, body {
-  overscroll-behavior: none;
-  overflow-x: hidden;
+  /* overscroll-behavior: none; */
+  overflow-x: clip;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
@@ -823,6 +823,18 @@ html {
 }
 
 /* ── CONTACT SECTION ── */
+
+body {
+  color: var(--color-text);
+  background: var(--color-bg);
+  min-height: 100vh;
+  /* overscroll-behavior: none might block native scrolling on some touch devices */
+  overflow-x: clip;
+  width: 100%;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 #contact-section {
   width: 100%;

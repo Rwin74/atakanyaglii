@@ -33,18 +33,26 @@ export function DisplayCard({
 export default function DisplayCards({ cards }) {
   const displayCards = cards || [];
   const [activeCard, setActiveCard] = useState(displayCards.length - 1);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
-    <div className="grid [grid-template-areas:'stack'] place-items-center opacity-100 transition-all duration-700 w-full max-w-[100vw] overflow-x-hidden md:overflow-visible py-20 pr-10">
+    <div className="grid [grid-template-areas:'stack'] place-items-center opacity-100 transition-all duration-700 w-full max-w-[100vw] overflow-x-hidden md:overflow-visible py-20 pr-4 md:pr-10">
       {displayCards.map((cardProps, index) => {
         const isActive = activeCard === index;
         
-        // Exact original translation logic (but dynamic for N cards)
-        const translateX = index * 64; // translate-x-16 is 4rem (64px)
-        const translateY = index * 40; // translate-y-10 is 2.5rem (40px)
+        // Much tighter spacing on mobile to prevent overflow
+        const translateX = index * (isMobile ? 24 : 64);
+        const translateY = index * (isMobile ? 20 : 40);
         
         // Active card pops up slightly
-        const currentTranslateY = isActive ? translateY - 40 : translateY;
+        const currentTranslateY = isActive ? translateY - (isMobile ? 20 : 40) : translateY;
         
         const style = {
           transform: `translate(${translateX}px, ${currentTranslateY}px)`,
@@ -53,7 +61,7 @@ export default function DisplayCards({ cards }) {
 
         const overlayClass = isActive 
           ? "grayscale-0" 
-          : "grayscale-[100%] before:absolute before:inset-0 before:rounded-xl before:bg-[var(--color-bg)]/50 hover:before:opacity-0 before:transition-opacity before:duration-700 before:z-10";
+          : "grayscale-[100%] before:absolute before:inset-0 before:rounded-xl before:bg-[#050b14]/70 hover:before:opacity-0 before:transition-opacity before:duration-700 before:z-10";
 
         return (
           <div 
@@ -62,7 +70,7 @@ export default function DisplayCards({ cards }) {
             style={style}
             onClick={() => setActiveCard(index)}
           >
-            <DisplayCard {...cardProps} />
+            <DisplayCard {...cardProps} className="w-[18rem] md:w-[28rem] min-h-[14rem] md:min-h-[12rem] px-5 py-4 md:px-6 md:py-5" />
           </div>
         );
       })}

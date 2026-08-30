@@ -143,12 +143,12 @@ export default function RadialOrbitalTimeline({
     >
       <div className="absolute top-10 w-full text-center z-20">
         <span className="text-xs font-semibold tracking-[0.2em] opacity-60">UZMANLIK</span>
-        <h2 className="text-4xl md:text-5xl font-bold mt-2" style={{ letterSpacing: "-0.04em" }}>Çalışma Alanlarımız</h2>
+        <h2 className="text-3xl md:text-5xl font-bold mt-2 px-4" style={{ letterSpacing: "-0.04em" }}>Çalışma Alanlarımız</h2>
       </div>
 
-      <div className="relative w-full max-w-4xl h-[500px] md:h-full flex items-center justify-center mt-10 md:mt-0">
+      <div className="relative w-full max-w-4xl h-[600px] md:h-full flex items-center justify-center mt-10 md:mt-0">
         <div
-          className="absolute w-full h-full flex items-center justify-center"
+          className="absolute w-full h-full flex items-start pt-[50px] md:pt-0 md:items-center justify-center"
           ref={orbitRef}
           style={{
             perspective: "1000px",
@@ -239,18 +239,6 @@ export default function RadialOrbitalTimeline({
                 >
                   {item.title}
                 </div>
-
-                  {/* Node Title */}
-                <div
-                  className={`
-                  absolute top-12 left-1/2 -translate-x-1/2 whitespace-nowrap
-                  text-xs font-semibold tracking-wider
-                  transition-all duration-300
-                  ${isExpanded ? "text-white scale-110 md:scale-125" : "text-[var(--color-text-muted)]"}
-                `}
-                >
-                  {item.title}
-                </div>
               </div>
             );
           })}
@@ -258,7 +246,7 @@ export default function RadialOrbitalTimeline({
 
         {/* Side Panel Card for Active Node */}
         <div
-          className={`absolute bottom-10 md:bottom-auto md:top-1/2 left-1/2 md:left-10 lg:left-[10%] -translate-x-1/2 md:translate-x-0 md:-translate-y-1/2 w-[90vw] md:w-80 lg:w-96 z-[1000] transition-all duration-700 ease-out transform ${
+          className={`absolute bottom-0 md:bottom-auto md:top-1/2 left-1/2 md:left-10 lg:left-[10%] -translate-x-1/2 md:translate-x-0 md:-translate-y-1/2 w-[90vw] md:w-80 lg:w-96 z-[1000] transition-all duration-700 ease-out transform ${
             activeNodeId ? "opacity-100 translate-y-0 md:translate-x-0" : "opacity-0 translate-y-8 md:translate-y-[-50%] md:-translate-x-12 pointer-events-none"
           }`}
         >

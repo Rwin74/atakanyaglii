@@ -102,14 +102,15 @@ export default function Home() {
         <Contact />
         <FuturisticFooter />
 
-        {/* GradualBlur — hidden when footer is in view */}
+        {/* GradualBlur — hidden when footer is in view, and hidden on mobile for performance */}
         <div
           ref={blurRef}
           aria-hidden="true"
+          className="hidden md:block"
           style={{
+            pointerEvents: "none",
             position: "fixed",
             inset: 0,
-            pointerEvents: "none",
             zIndex: 99999,
           }}
         >
