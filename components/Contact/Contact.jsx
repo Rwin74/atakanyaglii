@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AnimatedButton } from "../ui/animated-button";
 import { SectionSkiggle } from "../ui/section-skiggle";
 
-// Real contact info — kept in sync with what's already in `SiteFooter`.
+// Real contact info â€” kept in sync with what's already in `SiteFooter`.
 // If any of these change, update them in both places.
 const EMAIL = "atakan7495@gmail.com";
 const WHATSAPP_URL = "https://wa.me/905447218974";
@@ -147,3 +147,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

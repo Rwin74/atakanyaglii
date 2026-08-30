@@ -70,6 +70,7 @@ export function SectionSkiggle({
         xmlns="http://www.w3.org/2000/svg"
       >
         <motion.path
+          key={pathData}
           d={pathData}
           style={{
             pathLength: pathLength,

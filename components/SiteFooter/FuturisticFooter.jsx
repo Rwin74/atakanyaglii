@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
@@ -157,20 +157,20 @@ export default function FuturisticFooter() {
           }}
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
         >
-          {/* Keşfet */}
+          {/* Dizin */}
           <div className="flex flex-col items-center gap-4 text-center">
             <h3 className="text-xs tracking-[0.3em] text-[var(--color-accent)] uppercase mb-2">/ Dizin</h3>
             <a href="#projects-section" className="text-xl md:text-2xl font-bold font-mono">
               <RollingText text="PROJELER" />
             </a>
             <a href="#contact" className="text-xl md:text-2xl font-bold font-mono">
-              <RollingText text="İLETİŞİM" />
+              <RollingText text="Ä°LETÄ°ÅÄ°M" />
             </a>
           </div>
 
-          {/* İletişim */}
+          {/* Ä°letiÅŸim */}
           <div className="flex flex-col items-center gap-4 text-center">
-            <h3 className="text-xs tracking-[0.3em] text-[var(--color-accent)] uppercase mb-2">/ İletişim</h3>
+            <h3 className="text-xs tracking-[0.3em] text-[var(--color-accent)] uppercase mb-2">/ Ä°letiÅŸim</h3>
             <a href="mailto:atakan7495@gmail.com" className="text-xl md:text-2xl font-bold font-mono">
               <RollingText text="atakan7495@gmail.com" />
             </a>
@@ -215,8 +215,9 @@ export default function FuturisticFooter() {
         animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
         transition={{ delay: 1, duration: 0.5 }}
       >
-        SYS.REQ // {new Date().getFullYear()} © ATAKAN YAĞLI
+        SYS.REQ // {new Date().getFullYear()} Â© ATAKAN YAÄLI
       </motion.div>
     </footer>
   );
 }
+

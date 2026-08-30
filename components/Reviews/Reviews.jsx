@@ -81,7 +81,7 @@ export default function Reviews() {
       <SectionSkiggle type="reviews" />
       <div className="w-full text-center z-20 mb-10 px-4">
         <span className="text-xs font-semibold tracking-[0.2em] opacity-60">REFERANSLAR</span>
-        <h2 className="text-3xl md:text-5xl font-bold mt-2" style={{ letterSpacing: "-0.04em" }}>Müşteri Yorumları</h2>
+        <h2 classNaMüşteri Yorumları
       </div>
 
       <div className="w-full max-w-5xl flex items-center justify-center md:-translate-x-20">
@@ -90,3 +90,4 @@ export default function Reviews() {
     </section>
   );
 }
+
