@@ -1,10 +1,6 @@
 import { Outfit } from 'next/font/google'
 import './globals.css'
 
-// Outfit is the single typeface used everywhere on the site. Loading it through
-// next/font exposes a CSS variable (`--font-main`) we can reference from any
-// global CSS rule, while `outfit.className` applies it as the default font on
-// the body so every component inherits it automatically.
 const outfit = Outfit({
   subsets: ['latin'],
   variable: '--font-main',
@@ -49,7 +45,13 @@ export const metadata = {
     images: ['/hero-image-nobg.png'],
   },
   icons: {
-    icon: '/icon.png',
+    icon: [
+      { url: '/icon.jpg', type: 'image/jpeg' },
+    ],
+    apple: [
+      { url: '/icon.jpg', type: 'image/jpeg' },
+    ],
+    shortcut: '/icon.jpg',
   },
 }
 
@@ -112,11 +114,6 @@ const jsonLd = [
   }
 ];
 
-// Tiny script that runs synchronously before the body paints. It reads the
-// theme the user previously picked from localStorage and applies the
-// corresponding `data-theme` attribute on the <html> element. Without this,
-// the page would flash the default light theme for one frame on every reload
-// when the user is using dark mode. Default is light when nothing is saved.
 const themeBootstrap = `
 (function () {
   try {

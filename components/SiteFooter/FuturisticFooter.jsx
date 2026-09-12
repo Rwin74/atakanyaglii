@@ -164,13 +164,13 @@ export default function FuturisticFooter() {
               <RollingText text="PROJELER" />
             </a>
             <a href="#contact" className="text-xl md:text-2xl font-bold font-mono">
-              <RollingText text="Ä°LETÄ°ÅÄ°M" />
+              <RollingText text="İLETİŞİM" />
             </a>
           </div>
 
-          {/* Ä°letiÅŸim */}
+          {/* İletişim */}
           <div className="flex flex-col items-center gap-4 text-center">
-            <h3 className="text-xs tracking-[0.3em] text-[var(--color-accent)] uppercase mb-2">/ Ä°letiÅŸim</h3>
+            <h3 className="text-xs tracking-[0.3em] text-[var(--color-accent)] uppercase mb-2">/ İletişim</h3>
             <a href="mailto:atakan7495@gmail.com" className="text-xl md:text-2xl font-bold font-mono">
               <RollingText text="atakan7495@gmail.com" />
             </a>
