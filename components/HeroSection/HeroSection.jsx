@@ -248,7 +248,7 @@ const HeroSection = () => {
         {/* Portrait image (foreground, moves more) */}
         <div className="hero-layer" data-depth="0.50" style={{ zIndex: 10 }}>
           <div id="hero-img" ref={imgRef}>
-            <Image src="/hero-image-nobg.png" alt="" width={1199} height={1312} priority sizes="(max-width: 768px) 80vw, 50vw" draggable="false" />
+            <Image src="/hero-image-nobg.png" alt="Atakan Yağlı" width={1430} height={1312} priority sizes="(max-width: 768px) 90vw, 65vh" draggable="false" />
           </div>
         </div>
 
